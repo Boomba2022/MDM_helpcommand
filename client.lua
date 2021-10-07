@@ -1,16 +1,3 @@
-Simple help command script, 
-
-Features: 
-- Add up to 4 lines.
-- Change prefix.
-- Change prefix color.
-- Change All 4 lines of text independent. 
-- Command name is customizable.
-
-Default Command: 
-- /help 
-
-Configuration is found in the client.lua file: 
 -- Configuration 
 
 local prefix = "[MiddelveenRP]" -- Change the prefix of the message here. 
@@ -21,5 +8,15 @@ local msg3 = "Text" -- Only works if msg(msg3) is uncommented.
 local msg4 = "Text" -- Only works if msg(msg4) is uncommented.
 local command = "help" -- Change the command name. 
 
-For questions you can contact me on Discord: Manderijn#1519
+-- Script 
 
+RegisterCommand(command, function()
+    msg(msg1)
+    msg(msg2)
+    -- msg(msg3) -- Uncomment if you want a 3th line.
+    -- msg(msg4) -- Uncomment if you want a 4th line. 
+end, false)
+
+function msg(text)
+    TriggerEvent("chatMessage", prefix, prefixcolor, text)
+end
